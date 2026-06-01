@@ -1,0 +1,29 @@
+{
+  "snapshot_date": "2026-05-25",
+  "heldout_edhrec": {
+    "n": 28794,
+    "k_folds": 5,
+    "oof_spearman": 0.603,
+    "oof_r2": 0.394
+  },
+  "convergent_validity": {
+    "liquidity": {
+      "available": true,
+      "n_overlap": 32271,
+      "spearman": 0.587,
+      "expectation": "positive: wanted cards trade more"
+    },
+    "reprint_risk": {
+      "available": true,
+      "n_overlap": 32691,
+      "spearman": 0.348,
+      "expectation": "positive: Wizards reprints what people demand"
+    },
+    "buy_spike": {
+      "available": true,
+      "n_overlap": 4329,
+      "spearman": 0.078,
+      "expectation": "mild positive: demand is the spike catalyst"
+    }
+  }
+}

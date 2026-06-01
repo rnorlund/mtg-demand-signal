@@ -1,0 +1,59 @@
+{
+  "snapshot_date": "2026-05-25",
+  "n_cards": 32731,
+  "n_edhrec": 28794,
+  "n_price_demand": 4502,
+  "price_spearman": 0.294,
+  "corroboration_corr": 0.502,
+  "buckets": {
+    "Minimal demand": {
+      "n": 16,
+      "median_price": 2.71,
+      "median_edhrec_inclusion": 47
+    },
+    "Low demand": {
+      "n": 12635,
+      "median_price": 0.35,
+      "median_edhrec_inclusion": 539
+    },
+    "Moderate demand": {
+      "n": 17125,
+      "median_price": 0.35,
+      "median_edhrec_inclusion": 8230
+    },
+    "High demand": {
+      "n": 2955,
+      "median_price": 1.44,
+      "median_edhrec_inclusion": 76758
+    }
+  },
+  "validation": {
+    "snapshot_date": "2026-05-25",
+    "heldout_edhrec": {
+      "n": 28794,
+      "k_folds": 5,
+      "oof_spearman": 0.603,
+      "oof_r2": 0.394
+    },
+    "convergent_validity": {
+      "liquidity": {
+        "available": true,
+        "n_overlap": 32271,
+        "spearman": 0.587,
+        "expectation": "positive: wanted cards trade more"
+      },
+      "reprint_risk": {
+        "available": true,
+        "n_overlap": 32691,
+        "spearman": 0.348,
+        "expectation": "positive: Wizards reprints what people demand"
+      },
+      "buy_spike": {
+        "available": true,
+        "n_overlap": 4329,
+        "spearman": 0.078,
+        "expectation": "mild positive: demand is the spike catalyst"
+      }
+    }
+  }
+}
