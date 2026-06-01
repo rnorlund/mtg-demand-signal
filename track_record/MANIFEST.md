@@ -3,9 +3,10 @@
 Immutable dated snapshot of the Current Demand predictions. SHA-256 hashes let anyone
 verify later that this snapshot was not quietly rewritten.
 
+
 ## Snapshot date: 2026-06-01
 
 ```
-1e83cfb60416e99544054e660f8948d66a45b89824df9feb573911842791d1db  2026-06-01_predictions.csv
-cc777f5343811d02843874de560c48e0b3c1768d1b128136615abfebfc977a7d  2026-06-01_predictions.json
+f1cd062b8f96e6f3c0a80a62368072d7cf5a70e71b96f4020aa40fb05279cf1d  2026-06-01_predictions.csv
+2a5646f6bb23b5bc9548d5c3d0ea448ab5ce4a5da4885dab4fef1e5732815799  2026-06-01_predictions.json
 ```

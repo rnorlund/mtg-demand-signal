@@ -43,10 +43,11 @@ imputed to a neutral level so it can nudge a score but never sink an established
 
 ## Does the score mean anything? Two honest checks
 
-**1. More-wanted cards command higher prices.** The price LEVEL is deliberately not an input to the
-score (only price appreciation is). Yet when cards are binned by demand decile, the median market
-price climbs steadily with demand (Spearman correlation **0.294**). The index lines
-up with what the market actually pays.
+**1. More-wanted cards command higher prices.** The price LEVEL is not a general input to the score
+(only price appreciation is, plus a residual floor for the small set of Commander-banned cards
+described below). Yet when cards are binned by demand decile, the median market price climbs steadily
+with demand (Spearman correlation **0.297**). The index lines up with what the market
+actually pays.
 
 ![Demand vs price](figures/fig2_demand_vs_price.png)
 
@@ -103,9 +104,9 @@ narrow, format-marginal pieces that almost no deck chooses to run.
 | Bucket | Score | Cards | Median price | Median EDHREC decks |
 |---|---|---|---|---|
 | High demand | 75-100 | 2,955 | $1.44 | 76,758 |
-| Moderate demand | 50-75 | 17,125 | $0.35 | 8,230 |
-| Low demand | 25-50 | 12,635 | $0.35 | 539 |
-| Minimal demand | 0-25 | 16 | $2.71 | 47 |
+| Moderate demand | 50-75 | 17,151 | $0.35 | 8,230 |
+| Low demand | 25-50 | 12,614 | $0.35 | 539 |
+| Minimal demand | 0-25 | 11 | $2.79 | 47 |
 
 ## How this plugs into the other signals
 
@@ -126,9 +127,14 @@ large price moves.
   EDHREC time-series, so it cannot yet tell a card that is climbing in popularity from one that is
   fading at the same level. A forward-looking "demand momentum" needs historical EDHREC snapshots
   that are not yet sourced.
-- **Bans show up as lost demand, once.** A Commander ban removes a card from EDHREC inclusion, so a
-  banned card loses its largest component and falls into the lower buckets. Cards banned only in
-  competitive formats (often for being too strong) carry no penalty, because that is not low demand.
+- **Bans reduce demand, but do not erase it.** A Commander ban removes a card from EDHREC inclusion,
+  so a banned card loses its largest demand component. Much of that demand survives in the eternal
+  formats and the collector market, though, which is revealed by the price the card still commands and
+  how widely it was printed. So Commander-banned cards keep a discounted residual-demand floor built
+  from price level and breadth, which lands still-coveted cards like Mana Crypt and the Power 9 at the
+  top of the Moderate band instead of in the basement, while genuinely dead banned cards (low price)
+  stay low. Cards banned only in competitive formats (often for being too strong) carry no penalty.
+  WotC-removed offensive cards are excluded from the floor so it never elevates them.
 - Roadmap: scrape MTGTop8 tournament decklists (metagame adoption), an EDHREC popularity time-series
   (demand momentum), and Banned and Restricted announcements (ban risk as forward negative demand).
   The printing table already carries `tcgplayer_id` for marketplace joins. A natural v2 is

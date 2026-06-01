@@ -76,10 +76,10 @@ This is **version 1: a transparent composite index, not a black-box forecast**. 
 clean ground-truth label for "demand", so it does not claim a held-out accuracy number. Instead it is
 checked two honest ways (both in the technical report):
 
-1. **More-wanted cards command higher prices.** The price *level* is deliberately not an input to the
-   score (only price appreciation is). Yet when cards are binned by demand decile, the median market
-   price climbs steadily with demand (rank correlation about 0.29). The index lines up with what the
-   market actually pays.
+1. **More-wanted cards command higher prices.** The price *level* is not a general input to the score
+   (only price appreciation is, plus a residual floor for the small set of Commander-banned cards).
+   Yet when cards are binned by demand decile, the median market price climbs steadily with demand
+   (rank correlation about 0.30). The index lines up with what the market actually pays.
 2. **Independent signals agree (the real test).** EDHREC is 45% of the score, so "demand tracks
    EDHREC" would be trivially circular. So we build a second ranking from *only* the non-EDHREC
    signals (price demand, playability, breadth) and leave EDHREC out. The EDHREC deck count that
@@ -118,9 +118,11 @@ SHA-256 manifest so anyone can confirm later that we did not quietly rewrite his
   A forward-looking demand momentum is on the roadmap (it needs historical EDHREC snapshots).
 - EDHREC is a Commander-format signal. It is the best direct demand meter available for the secondary
   market, but it under-weights demand that lives mostly in competitive constructed formats.
-- A Commander ban shows up as lost demand: a banned card drops out of EDHREC and falls in the
-  ranking. Its residual high price (collectors, eternal formats) is a liquidity phenomenon, not
-  current play demand.
+- A Commander ban reduces demand but does not erase it. A banned card drops out of EDHREC and loses
+  its largest demand component, but much of the want survives in eternal formats and the collector
+  market, so banned cards keep a discounted residual-demand floor from their price level and breadth.
+  Still-coveted cards like Mana Crypt and the Power 9 land at the top of the Moderate band rather than
+  in the basement, while genuinely dead banned cards stay low.
 
 ## Disclaimer
 
